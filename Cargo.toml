@@ -1,0 +1,6 @@
+[package]
+name = "habitica-cli"
+version = "0.1.0"
+authors = ["Dawson Israel <dawfre@amazon.com>"]
+
+[dependencies]
