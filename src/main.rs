@@ -1,3 +1,7 @@
+extern crate clap;
+
+use clap::App;
+
 fn main() {
     App::new("habitica")
         .version("0.1")
