@@ -5,3 +5,4 @@ authors = ["Dawson Israel <dawfre@amazon.com>"]
 
 [dependencies]
 clap = "2.31.2"
+habitica_rust_client = "0.1.3"
