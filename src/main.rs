@@ -9,13 +9,17 @@ use clap::ArgMatches;
 use clap::{App, SubCommand};
 use config::{API_KEY, API_USER};
 
+const CONFIG: &str = "config";
+const TASKS: &str = "tasks";
+const TODO: &str = "todo";
+
 fn main() {
     let matches = App::new("Habitica")
         .version("0.1")
         .about("Unnoficial Habitica CLI")
         .author("Dawson Israel")
         .subcommand(
-            SubCommand::with_name("config")
+            SubCommand::with_name(CONFIG)
                 .args(&[
                     Arg::with_name(API_USER)
                         .short("u")
@@ -33,9 +37,9 @@ fn main() {
                 .about("Configure Habitica"),
         )
         .subcommand(
-            SubCommand::with_name("tasks")
+            SubCommand::with_name(TASKS)
                 .about("List taks")
-                .subcommand(SubCommand::with_name("todo").about("List ToDo's tasks")),
+                .subcommand(SubCommand::with_name(TODO).about("List ToDo's tasks")),
         )
         .get_matches();
 
@@ -43,15 +47,15 @@ fn main() {
 }
 
 fn process_matches(matches: ArgMatches) {
-    if let Some(config) = matches.subcommand_matches("config") {
+    if let Some(config) = matches.subcommand_matches(CONFIG) {
         config::set_config(
             config.value_of(API_USER).unwrap(),
             config.value_of(API_KEY).unwrap(),
         );
     }
 
-    if let Some(task) = matches.subcommand_matches("task") {
-        if let Some(_) = task.subcommand_matches("todo") {
+    if let Some(task) = matches.subcommand_matches(TASKS) {
+        if let Some(_) = task.subcommand_matches(TODO) {
             task::get_todo_tasks();
         }
     }

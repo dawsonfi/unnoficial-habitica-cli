@@ -1,6 +1,6 @@
 [package]
 name = "habitica-cli"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["Dawson Israel <dawfre@amazon.com>"]
 license = "MIT"
 description = "Unnoficial Habitica Rust Cli"
