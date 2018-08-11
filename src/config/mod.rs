@@ -1,12 +1,15 @@
 extern crate preferences;
 
-use self::preferences::{AppInfo, PreferencesMap, Preferences};
+use self::preferences::{AppInfo, Preferences, PreferencesMap};
 
 pub const API_USER: &str = "api_user";
 pub const API_KEY: &str = "api_key";
 
 const CONFIG_FILE: &str = "habitica_config";
-const APP_INFO: AppInfo = AppInfo {name: "Habitica Cli", author: "Dawson Freitas Israel"};
+const APP_INFO: AppInfo = AppInfo {
+    name: "Habitica Cli",
+    author: "Dawson Freitas Israel",
+};
 
 pub fn set_config(api_user: &str, api_key: &str) {
     let mut config = load_config();
@@ -23,6 +26,6 @@ pub fn read_config(key: &str) -> String {
 }
 
 fn load_config() -> PreferencesMap {
-    PreferencesMap::<String>::load(&APP_INFO, CONFIG_FILE).unwrap_or(PreferencesMap::<String>::new())
+    PreferencesMap::<String>::load(&APP_INFO, CONFIG_FILE)
+        .unwrap_or(PreferencesMap::<String>::new())
 }
-
