@@ -30,7 +30,7 @@ fn main() {
                     .required(true)
             ]).about("Configure Habitica"))
         .subcommand(
-            SubCommand::with_name("task")
+            SubCommand::with_name("tasks")
                 .about("List taks")
                 .subcommand(SubCommand::with_name("todo").about("List ToDo's tasks")),
         ).get_matches();

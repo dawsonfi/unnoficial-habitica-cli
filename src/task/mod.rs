@@ -1,8 +1,11 @@
+mod printer;
+
 use habitica_rust_client::task::api_credentials::ApiCredentials;
 use habitica_rust_client::task::habitica_client::HabiticaClient;
 use habitica_rust_client::task::tasks::Task;
 use config::{API_USER, API_KEY};
 use config::read_config;
+use self::printer::Printer;
 
 pub fn process_tasks_todo_command() {
     let api_credentials = ApiCredentials::new(
@@ -21,9 +24,5 @@ pub fn process_tasks_todo_command() {
 
 pub fn print_tasks(tasks: Vec<&Task>) {
     tasks.into_iter()
-         .for_each(print_task)
-}
-
-pub fn print_task(task: &Task) {
-    println!("| {} | - {}", task.get_task_type().as_ref().unwrap(), task.get_text().as_ref().unwrap());
+         .for_each(Task::print)
 }
