@@ -7,7 +7,7 @@ use habitica_rust_client::task::api_credentials::ApiCredentials;
 use habitica_rust_client::task::habitica_client::HabiticaClient;
 use habitica_rust_client::task::tasks::Task;
 
-pub fn process_tasks_todo_command() {
+pub fn get_todo_tasks() {
     let api_credentials = ApiCredentials::new(read_config(API_USER), read_config(API_KEY));
     let habitica_client = HabiticaClient::new(api_credentials);
 

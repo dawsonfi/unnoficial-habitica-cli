@@ -52,7 +52,7 @@ fn process_matches(matches: ArgMatches) {
 
     if let Some(task) = matches.subcommand_matches("task") {
         if let Some(_) = task.subcommand_matches("todo") {
-            task::process_tasks_todo_command();
+            task::get_todo_tasks();
         }
     }
 }
