@@ -56,7 +56,7 @@ fn process_matches(matches: ArgMatches) {
 
     if let Some(task) = matches.subcommand_matches(TASKS) {
         if let Some(_) = task.subcommand_matches(TODO) {
-            task::get_todo_tasks();
+            task::print_todo_tasks();
         }
     }
 }

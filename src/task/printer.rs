@@ -13,3 +13,7 @@ impl Printer for Task {
         );
     }
 }
+
+pub fn print_tasks(tasks: Vec<&Task>) {
+    tasks.into_iter().for_each(Task::print)
+}
