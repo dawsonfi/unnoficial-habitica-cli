@@ -12,6 +12,8 @@ use config::{API_KEY, API_USER};
 const CONFIG: &str = "config";
 const TASKS: &str = "tasks";
 const TODO: &str = "todo";
+const HABIT: &str = "habit";
+const DAILY: &str = "daily";
 
 fn main() {
     let matches = App::new("Habitica")
@@ -39,7 +41,9 @@ fn main() {
         .subcommand(
             SubCommand::with_name(TASKS)
                 .about("List taks")
-                .subcommand(SubCommand::with_name(TODO).about("List ToDo's tasks")),
+                .subcommand(SubCommand::with_name(TODO).about("List Todo tasks"))
+                .subcommand(SubCommand::with_name(HABIT).about("List Habit tasks"))
+                .subcommand(SubCommand::with_name(DAILY).about("List Daily tasks")),
         )
         .get_matches();
 
@@ -55,8 +59,9 @@ fn process_matches(matches: ArgMatches) {
     }
 
     if let Some(task) = matches.subcommand_matches(TASKS) {
-        if let Some(_) = task.subcommand_matches(TODO) {
-            task::print_todo_tasks();
+        match task.subcommand_name() {
+            Some(name) => task::print_filtered_tasks(name),
+            None => task::print_all_tasks(),
         }
     }
 }
