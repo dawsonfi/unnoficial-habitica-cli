@@ -1,7 +1,7 @@
-[![Build Status](https://travis-ci.org/dawsonfi/habitica-cli.svg?branch=master)](https://travis-ci.org/dawsonfi/habitica-cli)
+[![Build Status](https://travis-ci.org/dawsonfi/unnoficial-habitica-cl.svg?branch=master)](https://travis-ci.org/dawsonfi/unnoficial-habitica-cl)
 [![Current Crates.io Version](https://img.shields.io/crates/v/habitica-cli.svg)](https://crates.io/crates/habitica-cli)
 [![Docs.rs](https://docs.rs/habitica-cli/badge.svg)](https://docs.rs/habitica-cli/)
-[![Code Coverage](https://codecov.io/github/dawsonfi/habitica-cli/coverage.svg?branch=master)](https://codecov.io/github/dawsonfi/habitica-cli)
+[![Code Coverage](https://codecov.io/github/dawsonfi/unnoficial-habitica-cli/coverage.svg?branch=master)](https://codecov.io/github/dawsonfi/unnoficial-habitica-cli)
 
 ## Unnoficial [Habitica](https://www.habitica.com) CLI
 
