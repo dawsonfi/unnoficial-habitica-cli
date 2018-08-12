@@ -10,9 +10,9 @@ pub trait Printer {
 impl Printer for Task {
     fn print(&self) {
 
-        let completed = match self.is_completed() {
-            Some(_) => "true".green(),
-            None => "false".red(),
+        let completed = match self.is_completed().as_ref() {
+            Some(value) => if *value { "true".green() } else { "false".red() },
+            None => "none".white(),
         };
 
         println!(

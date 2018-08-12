@@ -5,12 +5,15 @@ use config::{API_KEY, API_USER};
 use habitica_rust_client::task::api_credentials::ApiCredentials;
 use habitica_rust_client::task::habitica_client::HabiticaClient;
 use habitica_rust_client::task::tasks::Tasks;
+use habitica_rust_client::task::tasks::Task;
 
 pub fn print_all_tasks() {
     let tasks = get_all_tasks();
-    let all_tasks = tasks.get_tasks()
+    let mut all_tasks = tasks.get_tasks()
         .into_iter()
-        .collect();
+        .collect::<Vec<&Task>>();
+
+    all_tasks.sort_by_key(|task| task.get_task_type().as_ref().unwrap());
 
     printer::print_tasks(all_tasks);
 }
